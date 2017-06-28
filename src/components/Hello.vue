@@ -16,10 +16,17 @@ export default {
   },
   methods: {
       uploadFile: function () {
-        let form = new FormData();
-        form.append('photo',"./Hello.vue", "Hello.vue" );
-        this.$http.post("127.0.0.1:8080", form, {
+        var formData = new FormData();
+        // append string
+        formData.append('foo', 'bar');
 
+        this.$http.post("http://127.0.0.1:3000", formData).then( response => {
+          // success callback
+          console.log("File sent...");
+          console.log(response);
+        }, response => {
+          // error callback
+          console.log("Error occurred...");
         });
       }
   }

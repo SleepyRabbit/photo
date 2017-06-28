@@ -6,6 +6,7 @@ import router from './router'
 import vueResource from 'vue-resource'
 
 Vue.use(vueResource);
+Vue.http.options.emulateJSON = true;
 
 Vue.config.productionTip = false
 
