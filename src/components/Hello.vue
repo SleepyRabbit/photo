@@ -26,8 +26,9 @@ export default {
       uploadFile: function () {
         var formData = new FormData();
         // append string
-        formData.append('foo', 'bar');
-//        formData.append("image", this.filelist[0])
+//        formData.type = "multipart/form-data"
+//        formData.append('foo', 'bar');
+        formData.append("image", this.filelist[0])
 
         this.$http.post("http://127.0.0.1:3000", formData, {
           emulateJSON: true,

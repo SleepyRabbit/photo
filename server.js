@@ -27,16 +27,39 @@ http.createServer(function (req, res) {
   }
   if(req.method === "POST") {
     console.log("Post method!");
-    req.on("data", chunk => {
-      // console.log("ondata");
-      datas += chunk;
+
+    var form = new formidable.IncomingForm();
+
+    //这里formidable会对upload的对象进行解析和处理
+    form.parse(req, function(err, fields, files) {
+      console.log(fields);
+      console.log(files);
+      res.write('received upload:\n\n');
+      // res.writeHead(200, {'content-type': 'text/plain'});
+      // res.write('received upload:\n\n');
+      // res.end(util.inspect({fields: fields, files: files}));
     });
-    req.on('end', function () {
 
-      var form = new formidable.IncomingForm();
-      form.encoding = 'utf-8';
+    // form.type= "form-data";
+    //
+    // form.parse(req, function () {
+    //   console.log('parse!');
+    // });
 
-      form.parse(datas);
+    // req.on("data", chunk => {
+    //   // console.log("ondata");
+    //   datas += chunk;
+    // });
+    // req.on('end', function () {
+    //
+    //   console.log(datas);
+    //   var form = new formidable.IncomingForm();
+    //   form.type= "form-data";
+    //   // form.encoding = 'utf-8';
+    //
+    //   // form.parse(datas, function () {
+    //
+    //   });
 
       // let temp = qs.parse(datas);
       // console.log(temp);
@@ -76,7 +99,7 @@ http.createServer(function (req, res) {
       //   })
       // })
 
-    })
+    // })
 
 
   }
