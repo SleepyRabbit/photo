@@ -1,25 +1,17 @@
 /**
  * Created by houenxing on 17/7/4.
  */
-var formidable = require('formidable'),
-  http = require('http'),
-  sys = require('util');
+"use strict";
 
-http.createServer(function(req, res) {
-  // console.log("data");
-  // if (req.url == '/upload' && req.method.toLowerCase() == 'post') {
+var http = require('http');
+var express = require('express');
 
-    console.log("data!");
-    // // parse a file upload
-    console.log(req);
-    var form = new formidable.IncomingForm();
+var app = express();
 
-    //这里formidable会对upload的对象进行解析和处理
-    form.parse(req, function(err, fields, files) {
-      res.writeHead(200, {'content-type': 'text/plain'});
-      res.write('received upload:\n\n');
-      res.end(sys.inspect({fields: fields, files: files}));
-    });
-    // return;
-  // }
-}).listen(3000);
+app.post('/', function (req, res) {
+  console.log('test');
+  // console.log(res);
+  res.send('hello post');
+})
+
+http.createServer(app).listen(3000);

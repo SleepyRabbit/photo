@@ -11,10 +11,10 @@ const bodyParser = require('body-parser')
 app.use(bodyParser.urlencoded({ extended: false }))
 
 app.post("/test",function(req,res){
+
+  console.log("post");
   // 跨域
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Methods","PUT,POST,GET,DELETE,OPTIONS");
-  res.header("Access-Control-Allow-Headers", "Content-Type,Content-Length, Authorization, Accept,X-Requested-With");
+  res.setHeader("Access-Control-Allow-Origin", "*");
 
   let form = new formidable.IncomingForm();
   form.encoding = 'utf-8'; // 编码

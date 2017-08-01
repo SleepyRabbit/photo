@@ -4,6 +4,8 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import vueResource from 'vue-resource'
+import './assets/css/common.css'
+import './assets/font-awesome/css/font-awesome.min.css'
 
 Vue.use(vueResource);
 Vue.http.options.emulateJSON = true;
