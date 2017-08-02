@@ -2,7 +2,7 @@
   <div class="upload">
   <p>this is a test!</p>
     <!--<button @click="uploadFile">upload</button>-->
-    <input type="file" @change="onFileChange($event)" accept="image/*">
+      <input type="file" @change="onFileChange($event)" accept="image/*">
   </div>
 </template>
 
@@ -30,19 +30,15 @@ export default {
 //        formData.append('foo', 'bar');
         formData.append("image", this.filelist[0])
 
-        this.$http.post("http://127.0.0.1:3002/upload", formData, {
-          emulateJSON: true,
-//          headers: {
-////            'Content-Type': 'multipart/form-data',
-//            'Access-Control-Allow-Origin' : '*'
-//          }
-        }).then( response => {
+        this.$http.post("/api/upload", formData)
+          .then( res => {
           // success callback
           console.log("File sent...");
-          console.log(response);
-        }, response => {
+          console.log(res.data);
+        }, res => {
           // error callback
           console.log("Error occurred...");
+          console.log(res);
         });
       }
   }

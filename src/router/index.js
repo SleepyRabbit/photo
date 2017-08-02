@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import home from '@/components/home'
+import login from '@/components/login'
 import upload from '@/components/upload'
 import register from '@/components/register'
 
@@ -16,6 +17,11 @@ export default new Router({
       path: '/home',
       name: 'home',
       component: home
+    },
+    {
+      path: '/login',
+      name: 'login',
+      component: login
     },
     {
       path: '/upload',

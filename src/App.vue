@@ -2,10 +2,11 @@
   <div id="app">
 
     <div class="site-header">
-      <router-link to="/">Home</router-link>
-      <router-link to="/register">Register</router-link>
-      <router-link to="/login">Login</router-link>
-      <router-link to="/upload">Upload</router-link>
+      <router-link to="/" v-if="getLoginState">Home</router-link>
+      <router-link to="/upload" v-if="getLoginState">Upload</router-link>
+      <router-link to="/register" v-if="!getLoginState">Register</router-link>
+      <router-link to="/login" v-if="!getLoginState">Login</router-link>
+      <a href="" v-show="getLoginState">Logout</a>
     </div>
 
     <router-view class="view-field"></router-view>
@@ -13,8 +14,16 @@
 </template>
 
 <script>
+
+  import { mapGetters } from "vuex";
+
 export default {
-  name: 'app'
+  name: 'app',
+  computed: {
+    ...mapGetters([
+        "getLoginState",
+    ])
+  }
 }
 </script>
 
