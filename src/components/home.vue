@@ -2,9 +2,10 @@
   <div class="home">
     <div v-if="getLoginState">
       <h2>Hello <i>{{getUser}}</i>!Welcome to the photo world!</h2>
-      <!--<div v-for="list in imgList">-->
-        <!--<img :src="list" alt="">-->
-      <!--</div>-->
+      <div v-for="list in imgList">
+        <img :src="list" alt="">
+      </div>
+      <!--<img src="http://127.0.0.1:3006/22/WechatIMG1.jpeg" alt="">-->
     </div>
     <div v-else>
       <h2>Please login first!</h2>
@@ -21,7 +22,6 @@ export default {
   data () {
     return {
         imgList: [],
-        imgUrl: require("/Users/houenxing/Documents/project/nodejs/demo/demo/expressdemo/upload/22/WechatIMG1.jpeg"),
     }
   },
   methods: {
@@ -35,7 +35,7 @@ export default {
         this.imgList = res.data;
       }, res => {
         console.log("Post failed!");
-        console.log(res);
+        console.log(res.data);
       });
     }
   },
@@ -53,5 +53,8 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-
+  .home img {
+    width: 300px;
+    height: 400px;
+  }
 </style>
