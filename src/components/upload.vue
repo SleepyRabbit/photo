@@ -9,6 +9,8 @@
 
 <script>
 
+  import { mapGetters } from "vuex"
+
 export default {
   name: 'upload',
   data () {
@@ -40,8 +42,9 @@ export default {
         }
 ////        formData.type = "multipart/form-data"
 ////        formData.append("file", file);
-        formData.append('user', 'bar');
-//
+        formData.append('user', this.getUser);
+
+        // 使用vue-resource传输formdata
         this.$http.post("/api/upload", formData)
         .then( res => {
           // success callback
@@ -53,6 +56,11 @@ export default {
           console.log(res);
         });
       }
+  },
+  computed: {
+    ...mapGetters([
+        'getUser',
+    ])
   }
 }
 </script>
