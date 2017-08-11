@@ -40,7 +40,7 @@ export default {
               // 注册成功
               case "succeed":
                   console.log("Register successful!");
-                  sessionStorage.setItem('photoUser', JSON.stringify({username: this.username}));                  this.setUser(this.username);
+                  localStorage.setItem('photoUser', JSON.stringify({username: this.username}));                  this.setUser(this.username);
                   this.changeLoginState(true);
                   this.$router.push('/');
                   break;

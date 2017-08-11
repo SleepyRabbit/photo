@@ -3,9 +3,11 @@
  */
 "use strict";
 
+var photoUser = JSON.parse(localStorage.getItem('photoUser')) || {};
+
 const state = {
-  user: "",
-  isLogin: false,
+  user: photoUser.username || '',
+  isLogin: Boolean(photoUser.username),
 };
 
 const mutations = {

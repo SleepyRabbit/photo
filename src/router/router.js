@@ -16,7 +16,7 @@ const router = new VueRouter({
 //每次路由前都判断一下是否有权限（即是否正确登录过）
 router.beforeEach((to, from, next) => {
   // console.log('beforeEach');
-  var userSession = JSON.parse(sessionStorage.getItem('photoUser')) || {};
+  var userSession = JSON.parse(localStorage.getItem('photoUser')) || {};
   console.log(userSession);
   var isLogin = Boolean(userSession.username);
   console.log(isLogin);
