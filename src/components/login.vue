@@ -35,11 +35,12 @@ export default {
             username: this.username,
             password: this.password
         }).then(res => {
-            console.log(res.data);
+//            console.log(res.data);
             switch(res.data) {
               // 登录成功
               case "succeed":
                 console.log("Login successful!");
+                sessionStorage.setItem('photoUser', JSON.stringify({username: this.username}));
                 this.setUser(this.username);
                 this.changeLoginState(true);
                 this.$router.push('/');
@@ -69,7 +70,7 @@ export default {
             }
         }, res => {
           console.log("Post failed!");
-          console.log(res);
+//          console.log(res);
         })
       }
   }

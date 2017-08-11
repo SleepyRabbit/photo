@@ -6,7 +6,7 @@
       <router-link to="/upload" v-if="getLoginState">Upload</router-link>
       <router-link to="/register" v-if="!getLoginState">Register</router-link>
       <router-link to="/login" v-if="!getLoginState">Login</router-link>
-      <a href="" v-show="getLoginState">Logout</a>
+      <router-link to="/logout" v-show="getLoginState">Logout</router-link>
     </div>
 
     <router-view class="view-field"></router-view>

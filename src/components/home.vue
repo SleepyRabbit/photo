@@ -2,10 +2,11 @@
   <div class="home">
     <div v-if="getLoginState">
       <h2>Hello <i>{{getUser}}</i>!Welcome to the photo world!</h2>
-      <div v-for="list in imgList">
-        <img :src="list" alt="">
+      <div class="flex">
+        <div v-for="list in imgList">
+          <img :src="list" alt="">
+        </div>
       </div>
-      <!--<img src="http://127.0.0.1:3006/22/WechatIMG1.jpeg" alt="">-->
     </div>
     <div v-else>
       <h2>Please login first!</h2>
@@ -27,7 +28,7 @@ export default {
   methods: {
     updateImg: function () {
       let user = this.getUser;
-      console.log(user);
+//      console.log(user);
       this.$http.post('/api/photo', {
           username: user
       }).then(res => {
@@ -54,7 +55,8 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
   .home img {
-    width: 300px;
-    height: 400px;
+    margin: 5px 10px;
+    width: 150px;
+    height: 250px;
   }
 </style>
