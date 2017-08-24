@@ -3,7 +3,7 @@
  */
 "use strict";
 
-var photoUser = JSON.parse(localStorage.getItem('photoUser')) || {};
+var photoUser = JSON.parse(sessionStorage.getItem('photoUser')) || {};
 
 const state = {
   user: photoUser.username || '',

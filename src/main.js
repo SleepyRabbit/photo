@@ -11,7 +11,7 @@ import './assets/font-awesome/css/font-awesome.min.css'
 Vue.use(vueResource);
 Vue.http.options.emulateJSON = true;
 
-Vue.config.productionTip = false
+Vue.config.productionTip = false;
 
 /* eslint-disable no-new */
 new Vue({

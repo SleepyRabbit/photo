@@ -26,7 +26,7 @@ export default {
     }, res => {
         console.log("get failed!");
     });
-    localStorage.removeItem('photoUser');
+    sessionStorage.removeItem('photoUser');
     this.setUser('');
     this.changeLoginState(false);
     this.$router.push('/');

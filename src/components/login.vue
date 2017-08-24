@@ -40,7 +40,7 @@ export default {
               // 登录成功
               case "succeed":
                 console.log("Login successful!");
-                localStorage.setItem('photoUser', JSON.stringify({username: this.username}));
+                sessionStorage.setItem('photoUser', JSON.stringify({username: this.username}));
                 this.setUser(this.username);
                 this.changeLoginState(true);
                 this.$router.push('/');
